@@ -140,7 +140,10 @@
 .sf-toolbar-block .sf-toolbar-info table {
 	max-width: 100% !important;
 	margin: 0;
+	border: 0;
 	padding: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 .sf-toolbar-block .sf-toolbar-info tr:hover {
 	background-color: rgba(0,0,0,.1) !important;
@@ -151,6 +154,7 @@
 	background-color: rgba(0,0,0,.25) !important;
 }
 .sf-toolbar-block .sf-toolbar-info th, .sf-toolbar-block .sf-toolbar-info td {
+	border: 0;
 	padding: 2px 10px 2px 0;
 }
 .sf-toolbar-block .sf-toolbar-info th:last-child, .sf-toolbar-block .sf-toolbar-info td:last-child {

@@ -245,6 +245,12 @@ $(document).ready(function() {
 	var $curr = $pC.find('.row').first();
 	var $label = $curr.children('h2').children('a').text();
 	$curr.children('h2').remove();
+	var $count = 0;
+	$curr.find('.table').find('tr').children('td:nth-child(2)').children('span').each(function() {
+		if ($.isNumeric($(this).text())) {
+			$count += parseInt($(this).text());
+		}
+	});
 	$toolbarContent.append('\
 		<div class="sf-toolbar-block sf-toolbar-database sf-toolbar-status-normal">\
 			<a href="#">\
@@ -265,7 +271,8 @@ $(document).ready(function() {
 					c0.2-0.4,0-0.8-0.4-1l-0.5-0.1c0,0,0,0,0,0l0.6-0.2c0.4-0.2,0.5-0.8,0.3-1.2l-0.4-1.1C23.2,15.9,22.7,15.5,22.3,15.6z M19.9,20.5\
 					c-1.1,0.4-2.3-0.1-2.7-1.2c-0.4-1.1,0.1-2.3,1.2-2.7c1.1-0.4,2.3,0.1,2.7,1.2C21.5,18.9,21,20.1,19.9,20.5z"/>\
 					</svg>\
-					<span class="sf-toolbar-value">' + $label + '</span>\
+					<span class="sf-toolbar-value">' + $count + '</span>\
+					<span class="sf-toolbar-label">' + $label + '</span>\
 				</div>\
 			</a>\
 			<div class="sf-toolbar-info">' + $curr.html().replaceColours() + '</div>\
@@ -277,6 +284,7 @@ $(document).ready(function() {
 	var $curr = $pC.find('.row').first();
 	var $label = $curr.children('h2').children('a').text();
 	$curr.children('h2').remove();
+	var $count = parseInt($curr.find('.table').find('tr:last-child').children('td:first-child').text());
 	$toolbarContent.append('\
 		<div class="sf-toolbar-block sf-toolbar-database sf-toolbar-status-normal">\
 			<a href="#">\
@@ -287,7 +295,8 @@ $(document).ready(function() {
 						V20z M17,11c0,0.6-0.4,1-1,1H8c-0.6,0-1-0.4-1-1s0.4-1,1-1h8C16.6,10,17,10.4,17,11z M17,14c0,0.6-0.4,1-1,1H8c-0.6,0-1-0.4-1-1\
 						s0.4-1,1-1h8C16.6,13,17,13.4,17,14z M13,17c0,0.6-0.4,1-1,1H8c-0.6,0-1-0.4-1-1s0.4-1,1-1h4C12.6,16,13,16.4,13,17z"/>\
 					</svg>\
-					<span class="sf-toolbar-value">' + $label + '</span>\
+					<span class="sf-toolbar-value">' + $count + '</span>\
+					<span class="sf-toolbar-label">' + $label + '</span>\
 				</div>\
 			</a>\
 			<div class="sf-toolbar-info">' + $curr.html().replaceColours() + '</div>\
