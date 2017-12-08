@@ -46,9 +46,7 @@ class ProfilingBar extends Module
          * Implemented hooks
          */
         $this->hooks = array(
-            // displays
-            'actionAdminControllerSetMedia',
-            'actionFrontControllerSetMedia',
+            'actionDispatcher',
         );
 
     } // __construct()
@@ -93,23 +91,11 @@ class ProfilingBar extends Module
     } // uninstall()
 
     /**
-     * After setting media on admin controllers
+     * After dispatching the controller
      *
      * @param array $params Parameters
      */
-    public function hookActionAdminControllerSetMedia($params)
-    {
-
-        $this->enableToolbar();
-
-    }
-
-    /**
-     * After setting media on front controllers
-     *
-     * @param array $params Parameters
-     */
-    public function hookActionFrontControllerSetMedia($params)
+    public function hookActionDispatcher($params)
     {
 
         $this->enableToolbar();

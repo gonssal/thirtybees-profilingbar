@@ -134,7 +134,7 @@
     border-radius: 3px;
     background: #888;
 }
-.sf-toolbar-block.sf-toolbar-database:hover .sf-toolbar-info {
+.sf-toolbar-block.sf-toolbar-database:hover .sf-toolbar-info, .sf-toolbar-block.sf-toolbar-exception:hover .sf-toolbar-info {
 	max-width: none;
 }
 .sf-toolbar-block .sf-toolbar-info table {
@@ -155,7 +155,9 @@
 }
 .sf-toolbar-block .sf-toolbar-info th, .sf-toolbar-block .sf-toolbar-info td {
 	border: 0;
-	padding: 2px 10px 2px 0;
+    padding: 2px 10px 2px 0;
+    color: inherit;
+    background: none;
 }
 .sf-toolbar-block .sf-toolbar-info th:last-child, .sf-toolbar-block .sf-toolbar-info td:last-child {
 	padding-right: 0;
@@ -175,7 +177,29 @@
 	display: inline-block;
 }
 .sf-toolbar-block .sf-toolbar-info a {
-	color: #99CDD8;
+	color: #99CDD8 !important;
+}
+.sf-toolbar-block .sf-toolbar-info a:hover {
+    text-decoration: none;
+}
+.sf-toolbar-block .sf-toolbar-info h2 {
+    margin: .5em 0;
+}
+.sf-toolbar-block .sf-toolbar-info pre {
+    /* Overrides FO theme stuff, yeah I know... */
+    word-break: normal;
+    word-wrap: normal;
+    white-space: pre;
+    margin: .75em 0 1.5em 0;
+    border: 0;
+	border-radius: 0;
+	padding: 0;
+    color: #fff;
+    background: rgba(0,0,0,.25);
+	box-shadow: none;
+}
+.sf-toolbar-block .sf-toolbar-info pre span.selected {
+    display: block;
 }
 .sf-toolbar-block .sf-toolbar-info a:hover {
 	text-decoration: none;
@@ -191,14 +215,8 @@
 	fill: #99CDD8 !important;
 }
 .sf-toolbar-block .sf-toolbar-info td.pre pre {
-	margin: 0;
-	display: block;
-	border: 0;
-	border-radius: 0;
-	padding: 0;
-	max-width: 80vw;
-	background: rgba(0,0,0,.25);
-	box-shadow: none;
+    max-width: 80vw;
+    margin: 0;
 }
 .sf-toolbar-block .sf-toolbar-info td.pre pre.code-toolbar > .toolbar {
 	top: 2px;
@@ -631,7 +649,6 @@
     margin-left: 5px;
     text-decoration: underline;
 }
-
 .sf-error-toolbar .sf-toolbarreset a:hover {
     text-decoration: none;
 }
