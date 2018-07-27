@@ -19,7 +19,7 @@ class ProfilingBar extends Module
 
     /**
      * Constructor
-     * 
+     *
      * @see Module::__construct()
      */
     public function __construct()
@@ -98,7 +98,11 @@ class ProfilingBar extends Module
     public function hookActionDispatcher($params)
     {
 
-        $this->enableToolbar();
+        if (_PS_DEBUG_PROFILING_) {
+
+            $this->enableToolbar();
+
+        }
 
     }
 
@@ -133,17 +137,14 @@ class ProfilingBar extends Module
      *
      * @return void
      */
-    private function enableToolbar() {
+    private function enableToolbar()
+    {
 
-        if (_PS_DEBUG_PROFILING_) {
-            
-            $this->context->controller->addCSS($this->getPathUri().'views/css/toolbar.css', 'screen');
-            $this->context->controller->addCSS($this->getPathUri().'views/css/prism.css', 'screen');
-            $this->context->controller->addJquery();
-            $this->context->controller->addJS($this->getPathUri().'views/js/prism.js');
-            $this->context->controller->addJS($this->getPathUri().'views/js/toolbar.js');
-
-        }
+        $this->context->controller->addCSS($this->getPathUri() . 'views/css/toolbar.css', 'screen');
+        $this->context->controller->addCSS($this->getPathUri() . 'views/css/prism.css', 'screen');
+        $this->context->controller->addJquery();
+        $this->context->controller->addJS($this->getPathUri() . 'views/js/prism.js');
+        $this->context->controller->addJS($this->getPathUri() . 'views/js/toolbar.js');
 
     }
 
